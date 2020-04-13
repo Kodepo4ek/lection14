@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="height: 900px;">
+    <div>
+        <h1>Задание первое</h1>
+        <div id="start1">
+            <div class="elemnt" style="width: 120px; height: 120px; border: solid;">
+                <h1 id="count1">0</h1>
+                <button class="button 1" id="+" type="1" data-target="count1">+</button>
+                <button class="button 1" id="-" type="1" data-target="count1">-</button>
+            </div>
+            <div class="elemnt" style="width: 120px; height: 120px; border: solid;">
+                <h1 id="count2">0</h1>
+                <button class="button 2" id="+" type="2" data-target="count2">+</button>
+                <button class="button 2" id="-" type="2" data-target="count2">-</button>
+            </div>
+            <div class="elemnt" style="width: 120px; height: 120px; border: solid;">
+                <h1 id="count3">0</h1>
+                <button class="button 3" id="+" type="3" data-target="count3">+</button>
+                <button class="button 3" id="-" type="3" data-target="count3">-</button>
+            </div>
+            <div class="elemnt" style="width: 120px; height: 120px; border: solid;">
+                <h1 id="count4">0</h1>
+                <button class="button 4" id="+" type="4" data-target="count4">+</button>
+                <button class="button 4" id="-" type="4" data-target="count4">-</button>
+            </div>
+            <div class="elemnt" style="width: 120px; height: 120px; border: solid;">
+                <h1 id="count5">0</h1>
+                <button class="button 5" id="+" type="5" data-target="count">+</button>
+                <button class="button 5" id="-" type="5" data-target="count">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1>Задание второе</h1>
+        <div id="start2" style="float: left;">
+            <div style="height: 100px; width: 100px; border: solid; float: left;"></div>
+            <div style="height: 100px; width: 100px; border: solid; float: left;"></div>
+            <div style="height: 100px; width: 100px; border: solid; float: left;"></div>
+            <div style="height: 100px; width: 100px; border: solid; float: left;"></div>
+            <div style="height: 100px; width: 100px; border: solid; float: left;"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Счетчик
+        let count1 = 0;
+        let count2 = 0;
+        let count3 = 0;
+        let count4 = 0;
+        let count5 = 0;
+
+
+
+
+        let $buttons = document.querySelectorAll('.button');
+
+
+        let $count1 = document.querySelector('#count1');
+        let $count2 = document.querySelector('#count2');
+        let $count3 = document.querySelector('#count3');
+        let $count4 = document.querySelector('#count4');
+        let $count5 = document.querySelector('#count5');
+
+        $buttons.forEach((button => {
+            button.addEventListener('click', function () {
+              
+                // let elem = this.getAttribute('Data-target');
+                // let element = '$' + elem;
+
+                // console.log(element);
+
+                // if(this.id === '+'){
+                //     elem++;
+                //     //console.log(elem)
+                //     element.innerHTML  = this.getAttribute('Data-target');
+                //     //console.log(count1);
+                // } else {
+                //     $count1.innerHTML  =  count1--;
+                // }\
+
+                let a = this.getAttribute('type');
+                // console.log(this)
+                // console.log(this.getAttribute('type'));
+            if(a === '1') {
+                if(button.id === '+'){
+                    $count1.innerHTML  =  count1++;
+                } else{
+                    $count1.innerHTML  =  count1--;
+                }
+            } else if( a === '2') {
+                if(button.id === '+'){
+                    $count2.innerHTML  =  count2++;
+                } else{
+                    $count2.innerHTML  =  count2--;
+                }
+            }
+            else if( a === '3') {
+                if(button.id === '+'){
+                    $count3.innerHTML  =  count3++;
+                } else{
+                    $count3.innerHTML  =  count3--;
+                }
+            }
+            else if( a === '4') {
+                if(button.id === '+'){
+                    $count4.innerHTML  =  count4++;
+                } else{
+                    $count4.innerHTML  =  count4--;
+                }
+            } else{
+                if(button.id === '+'){
+                    $count5.innerHTML  =  count5++;
+                } else{
+                    $count5.innerHTML  =  count5--;
+                }
+            }
+            })
+        }))
+        
+
+        // Задание №2
+
+        let $colorDiv = document.querySelector('#start2');
+
+        $colorDiv.addEventListener("click", (e) => {
+            //Получаем элемент на который нажали
+            const DIV = e.target;
+            //console.log(DIV)
+
+            // удаляем пустой блок и в конец
+            DIV.remove();
+
+            if(DIV.style.backgroundColor == "blue") 
+            {
+                DIV.style.backgroundColor = "green";
+            } 
+                else if (DIV.style.backgroundColor == "green") 
+                {
+                    DIV.style.backgroundColor = "yellow";
+                }
+                    else
+                    {
+                        DIV.style.backgroundColor = "blue";
+                    }
+
+                    
+            $colorDiv.append(DIV);
+        })
+        
+       
+    </script>
+</body>
+</html>
